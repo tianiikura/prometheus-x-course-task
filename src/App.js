@@ -18,13 +18,11 @@ function App() {
   const logIn = function (name) {
       reactLocalStorage.set('Username', name);
       setUsername(name);
-      router.navigate(`/books`);
   }
 
   const logOut = function () {
     reactLocalStorage.remove('Username');
     setUsername(null);
-    router.navigate(`/`);
   }
 
   const [cart, setCart] = useState(reactLocalStorage.getObject('cart'));
@@ -41,14 +39,14 @@ function App() {
 
   let routes;
   if (!username) {
-    routes = <Route path='x-course-task/' element = {<Layout username={username} logOut={logOut} />}>
-                <Route path='/' element = {<SignIn logIn={logIn}/>}/>
+    routes = <Route path='/' element = {<Layout username={username} logOut={logOut} />}>
+                <Route path='' element = {<SignIn logIn={logIn}/>}/>
                 <Route path='*' element = {<Error404 />} />
               </Route>
   }
   else {
-    routes = <Route path='x-course-task/' element = {<Layout username={username} logOut={logOut} />}>
-              <Route path='/' element = {<BookList />}/>
+    routes = <Route path='/' element = {<Layout username={username} logOut={logOut} />}>
+              <Route path='' element = {<BookList />}/>
               <Route path='books' element = {<BookList />}/>
               <Route path='book/:id' loader={bookLoader} element = {<SpecificBook /> }/>
               <Route path='cart' element = {<ShoppingCart />}/>
@@ -57,9 +55,9 @@ function App() {
   }
 
   let router = createBrowserRouter(
-    createRoutesFromElements(
-      routes
-    )
+    createRoutesFromElements(routes), {
+      basename: "/x-course-task/"
+    }
   );
 
   return (

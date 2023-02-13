@@ -1,8 +1,16 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './SignIn.css';
 
 function SignIn ({logIn}) {
     const [name, setName] = useState('');
+    const navigate = useNavigate()
+
+    const handleLogin = e => {
+        e.preventDefault();
+        logIn(name);
+        navigate("/books")
+    }
 
     return (
         <main className="login-page">
@@ -17,7 +25,7 @@ function SignIn ({logIn}) {
                 </defs>
             </svg>
             <div className="login-page__login-block">
-                <form method="post" className="login-page__signin-form" onSubmit={e =>{ e.preventDefault(); logIn(name)}}>
+                <form method="post" className="login-page__signin-form" onSubmit={handleLogin}>
                     <div>
                         <label htmlFor="username">Username</label>
                     </div>
