@@ -41,13 +41,13 @@ function App() {
 
   let routes;
   if (!username) {
-    routes = <Route path='/' element = {<Layout username={username} logOut={logOut} />}>
+    routes = <Route path='x-course-task/' element = {<Layout username={username} logOut={logOut} />}>
                 <Route path='/' element = {<SignIn logIn={logIn}/>}/>
                 <Route path='*' element = {<Error404 />} />
               </Route>
   }
   else {
-    routes = <Route path='/' element = {<Layout username={username} logOut={logOut} />}>
+    routes = <Route path='x-course-task/' element = {<Layout username={username} logOut={logOut} />}>
               <Route path='/' element = {<BookList />}/>
               <Route path='books' element = {<BookList />}/>
               <Route path='book/:id' loader={bookLoader} element = {<SpecificBook /> }/>
