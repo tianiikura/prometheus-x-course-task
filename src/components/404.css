@@ -1,0 +1,23 @@
+.notFound__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 30px;
+    color: #01AAA7;
+    width: 100%;
+}
+
+.notFound__404 {
+    color: #01AAA7;
+    font-size: 140px;
+    font-weight: bold;
+}
+
+.notFound__title {
+    font-size: 24px;
+}
+
+.notFound__subtitle {
+    font-size: 16px;
+}
