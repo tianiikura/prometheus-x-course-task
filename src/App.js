@@ -56,7 +56,7 @@ function App() {
 
   let router = createBrowserRouter(
     createRoutesFromElements(routes), {
-      basename: "/x-course-task/"
+      basename: "/prometheus-x-course-task/"
     }
   );
 
