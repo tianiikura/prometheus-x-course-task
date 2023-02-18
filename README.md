@@ -1,1 +1,0 @@
-[Demo github pages](https://tianiikura.github.io/prometheus-x-course-task/)
